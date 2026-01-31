@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Milkdown editor customizations */
+.milkdown-editor {
+  height: 100%;
+  overflow: auto;
+  background: #ffffff;
+}
+
+.milkdown-editor .milkdown {
+  height: 100%;
+}
+
+.milkdown-editor .editor {
+  padding: 1rem;
+  outline: none;
+  min-height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+.milkdown-editor .editor:focus {
+  outline: none;
+}
+
+/* Milkdown prose styling */
+.milkdown-editor .editor h1 {
+  font-size: 2em;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.milkdown-editor .editor h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.milkdown-editor .editor h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.milkdown-editor .editor h4,
+.milkdown-editor .editor h5,
+.milkdown-editor .editor h6 {
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.milkdown-editor .editor p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.milkdown-editor .editor a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.milkdown-editor .editor a:hover {
+  text-decoration: underline;
+}
+
+.milkdown-editor .editor strong {
+  font-weight: 600;
+}
+
+.milkdown-editor .editor em {
+  font-style: italic;
+}
+
+.milkdown-editor .editor ul,
+.milkdown-editor .editor ol {
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding-left: 2em;
+}
+
+.milkdown-editor .editor li {
+  margin-top: 0.25em;
+}
+
+.milkdown-editor .editor blockquote {
+  margin: 0 0 1em 0;
+  padding: 0 1em;
+  color: #6b7280;
+  border-left: 0.25em solid #d1d5db;
+}
+
+.milkdown-editor .editor code {
+  padding: 0.2em 0.4em;
+  font-size: 85%;
+  background-color: #f3f4f6;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+.milkdown-editor .editor pre {
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding: 1em;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+}
+
+.milkdown-editor .editor pre code {
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.milkdown-editor .editor hr {
+  height: 0.25em;
+  padding: 0;
+  margin: 1.5em 0;
+  background-color: #e5e7eb;
+  border: 0;
+}
+
+.milkdown-editor .editor table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  margin-bottom: 1em;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.milkdown-editor .editor table th,
+.milkdown-editor .editor table td {
+  padding: 6px 13px;
+  border: 1px solid #d1d5db;
+}
+
+.milkdown-editor .editor table th {
+  font-weight: 600;
+  background-color: #f9fafb;
+}
+
+.milkdown-editor .editor table tr:nth-child(2n) {
+  background-color: #f9fafb;
+}
+
+.milkdown-editor .editor img {
+  max-width: 100%;
+}
+
+/* Task list styling */
+.milkdown-editor .editor input[type="checkbox"] {
+  margin-right: 0.5em;
+}
+
+.milkdown-editor .editor del {
+  text-decoration: line-through;
+}
+
+/* Monaco editor container */
+.monaco-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Split pane styles */
+.split-pane {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.split-pane > div {
+  flex: 1;
+  overflow: hidden;
+}
+
+.split-pane .divider {
+  width: 4px;
+  background: #e2e8f0;
+  cursor: col-resize;
+  flex-shrink: 0;
+}
+
+.split-pane .divider:hover {
+  background: #94a3b8;
+}
