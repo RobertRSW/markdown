@@ -9,6 +9,7 @@ interface EditModeProps {
 
 export default function EditMode({ markdown, onChange }: EditModeProps) {
   const [splitPosition, setSplitPosition] = useState(50)
+  const [activeEditor, setActiveEditor] = useState<'monaco' | 'milkdown' | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const isDragging = useRef(false)
 
@@ -51,22 +52,36 @@ export default function EditMode({ markdown, onChange }: EditModeProps) {
     document.addEventListener('mouseup', onMouseUp)
   }, [handleMouseDown, handleMouseMove, handleMouseUp])
 
+  // Focus handlers
+  const handleMonacoFocus = useCallback(() => {
+    setActiveEditor('monaco')
+  }, [])
+
+  const handleMilkdownFocus = useCallback(() => {
+    setActiveEditor('milkdown')
+  }, [])
+
   return (
     <div ref={containerRef} className="flex h-full overflow-hidden">
       {/* Rich Text Editor (Left Pane) */}
       <div
         className="overflow-hidden border-r border-gray-200"
         style={{ width: `${splitPosition}%` }}
+        onFocus={handleMilkdownFocus}
       >
         <div className="h-8 px-3 flex items-center bg-gray-50 border-b border-gray-200">
           <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
             Rich Text
           </span>
+          {activeEditor === 'milkdown' && (
+            <span className="ml-2 text-xs text-blue-500">(active)</span>
+          )}
         </div>
         <div className="h-[calc(100%-2rem)] overflow-hidden">
           <RichTextEditor
             markdown={markdown}
             onChange={onChange}
+            isMaster={activeEditor === 'milkdown'}
           />
         </div>
       </div>
@@ -81,16 +96,21 @@ export default function EditMode({ markdown, onChange }: EditModeProps) {
       <div
         className="overflow-hidden"
         style={{ width: `${100 - splitPosition}%` }}
+        onFocus={handleMonacoFocus}
       >
         <div className="h-8 px-3 flex items-center bg-gray-50 border-b border-gray-200">
           <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
             Markdown
           </span>
+          {activeEditor === 'monaco' && (
+            <span className="ml-2 text-xs text-blue-500">(active)</span>
+          )}
         </div>
         <div className="h-[calc(100%-2rem)]">
           <CodeEditor
             value={markdown}
             onChange={onChange}
+            isMaster={activeEditor === 'monaco'}
           />
         </div>
       </div>
