@@ -2,7 +2,7 @@
 
 A fast, offline-capable Progressive Web App for viewing and editing Markdown files. Features a unique split-pane editor with synchronized WYSIWYG and code views.
 
-**[Try it live](https://md.woodmantech.com)** | **[Support this project](https://ko-fi.com/YOUR_KOFI_USERNAME)**
+**[Try it live](https://md.woodmantech.com)** | **[Support this project](https://ko-fi.com/robert13079)**
 
 ![Markdown Editor Screenshot](docs/screenshot.png)
 
@@ -104,7 +104,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## Support
 
-If this tool saves you time, consider [buying me a coffee](https://ko-fi.com/YOUR_KOFI_USERNAME).
+If this tool saves you time, consider [buying me a coffee](https://ko-fi.com/robert13079).
 
 ---
 
